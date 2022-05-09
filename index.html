@@ -16,7 +16,18 @@
 </head>
 <body>
     <div class="container" id="container">
-
+        <div class="text-center" id="game-start_box">
+            <h1>Campo Minato</h1>
+            <div class="d-flex flex-column align-items-center" id="difficulty-selector_box">
+                <h2>Select challenge:</h2>
+                <button class="mode-button" id="easy" onclick="changeDifficulty1()">Easy</button>
+                <button class="mode-button" id="normal" onclick="changeDifficulty2()">Normal</button>
+                <button class="mode-button" id="hard" onclick="changeDifficulty3()">Hard</button>
+            </div>
+            <button id="start-game_button" onclick="startGame()">START</button>
+        </div>
+        <div class="d-flex flex-wrap" id="main-game_box">
+        </div>
     </div>
     <script src="js/main.js"></script>
 </body>
