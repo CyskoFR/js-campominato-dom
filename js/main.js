@@ -81,7 +81,7 @@ function onCellClick() {
         setTimeout(function() {
             alert(`You Died! Your Score: ${score}`);
             location.reload();
-        }, 100);
+        }, 500);
     } else {
         score += 100;
         scoreBox.innerHTML = score;
