@@ -14,6 +14,7 @@
 
 
 let slotNumber = 0;
+let score = 0;
 const bombNumber = 16;
 const bombSlots = [];
 const safeSlots = [];
@@ -61,15 +62,14 @@ function startGame() {
             const slot = document.createElement("div");
             slot.innerText = i;
             mainGameBox.append(slot);
-            slot.classList.add("slot", "bomb-slot");
+            slot.classList.add("slot", "bomb-slot", "slot-overlay");
         } else {
             const slot = document.createElement("div");
             slot.innerText = i;
             mainGameBox.append(slot);
-            slot.classList.add("slot", "safe-slot");
+            slot.classList.add("slot", "safe-slot", "slot-overlay");
         }
     }
-    
 }
 
 
