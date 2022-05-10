@@ -14,7 +14,9 @@
 
 
 let slotNumber = 0;
-const bombNumbers = [];
+const bombNumber = 16;
+const bombSlots = [];
+const safeSlots = [];
 const mainGameBox = document.getElementById("main-game_box");
 
 function changeDifficulty1() {
@@ -35,28 +37,47 @@ function startGame() {
     if (slotNumber === 100 || slotNumber === 80 || slotNumber === 50) {
         document.getElementById("game-start_box").style.display = "none";
     } else {
-        alert("Select difficulty level")
+        alert("Select difficulty level");
+        return;
     }
+    while (bombSlots.length < bombNumber) {
+        let bomb = getRandomNumber(1, slotNumber);
+        if (!bombSlots.includes(bomb)) {
+            bombSlots.push(bomb);
+        } 
+    }
+    console.log(`Bomb Slots`, bombSlots);
+
     for (let i = 1; i <= slotNumber; i++) {
-        const slot = document.createElement("div");
-        slot.classList.add("slot");
-        mainGameBox.append(slot)
+        let safeSlot = i;
+        if (!bombSlots.includes(safeSlot))
+        safeSlots.push(i);
     }
-    while (bombNumbers.length < 16) {
-        let num = getRandomNumber(1, slotNumber);
-        if (!bombNumbers.includes(num)) {
-            bombNumbers.push(num);
+    console.log(`Safe Slots`, safeSlots);
+
+    for (let i = 1; i <= slotNumber; i++) {
+        let slot = i;
+        if (bombSlots.includes(slot)) {
+            const slot = document.createElement("div");
+            slot.innerText = i;
+            mainGameBox.append(slot);
+            slot.classList.add("bomb-slot");
+        } else {
+            const slot = document.createElement("div");
+            slot.innerText = i;
+            mainGameBox.append(slot);
+            slot.classList.add("safe-slot");
         }
     }
-    console.log(bombNumbers);
+    
 }
 
 
 
 
-
-
-
-
+//     document.getElementById('button').onclick = function() {
+//         alert("button clicked");
+//     }​;​
+// }
 
 
