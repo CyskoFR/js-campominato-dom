@@ -72,12 +72,16 @@ function startGame() {
 }
 
 function onCellClick() {
-    console.log(this.innerHTML);
     this.classList.remove("slot-overlay");
     if (this.classList.contains("bomb-slot")) {
-// -------------- RIGA MALEDETTA --------------- //
-        // alert(`You Died! Your Score: ${score}`);
-        // location.reload();
+        let overlay = document.querySelectorAll(".slot-overlay");
+        for (let i = 0; i < overlay.length; i++) {
+            overlay[i].classList.remove("slot-overlay");
+        }
+        setTimeout(function() {
+            alert(`You Died! Your Score: ${score}`);
+            location.reload();
+        }, 100);
     } else {
         score += 100;
         scoreBox.innerHTML = score;
@@ -87,6 +91,3 @@ function onCellClick() {
 function reset() {
     location.reload();
 }
-
-
-// document.querySelectorAll("slot-overlay").classList.remove("slot-overlay");
