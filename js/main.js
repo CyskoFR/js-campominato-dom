@@ -14,7 +14,9 @@
 
 
 let slotNumber = 0;
+let scoreBox = document.getElementById("score");
 let score = 0;
+scoreBox.innerHTML = 0;
 const bombNumber = 16;
 const bombSlots = [];
 const safeSlots = [];
@@ -57,27 +59,34 @@ function startGame() {
     console.log(`Safe Slots`, safeSlots);
 
     for (let i = 1; i <= slotNumber; i++) {
-        let slot = i;
-        if (bombSlots.includes(slot)) {
-            const slot = document.createElement("div");
-            slot.innerText = i;
-            mainGameBox.append(slot);
+        const slot = document.createElement("div");
+        slot.innerText = i;
+        if (bombSlots.includes(i)) {
             slot.classList.add("slot", "bomb-slot", "slot-overlay");
         } else {
-            const slot = document.createElement("div");
-            slot.innerText = i;
-            mainGameBox.append(slot);
             slot.classList.add("slot", "safe-slot", "slot-overlay");
         }
+        slot.addEventListener("click", onCellClick);
+        mainGameBox.append(slot);
     }
 }
 
+function onCellClick() {
+    console.log(this.innerHTML);
+    this.classList.remove("slot-overlay");
+    if (this.classList.contains("bomb-slot")) {
+// -------------- RIGA MALEDETTA --------------- //
+        // alert(`You Died! Your Score: ${score}`);
+        // location.reload();
+    } else {
+        score += 100;
+        scoreBox.innerHTML = score;
+    }
+}
+
+function reset() {
+    location.reload();
+}
 
 
-
-//     document.getElementById('button').onclick = function() {
-//         alert("button clicked");
-//     }​;​
-// }
-
-
+// document.querySelectorAll("slot-overlay").classList.remove("slot-overlay");

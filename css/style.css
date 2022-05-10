@@ -142,4 +142,10 @@
     padding: 14px 28px;
     border: 1px solid grey;
     border-radius: 14px;
+    font-weight: 500;
+}
+
+#reset:hover {
+    background-color: maroon;
+    color: white;
 }
