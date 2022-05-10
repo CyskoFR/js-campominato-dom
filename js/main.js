@@ -73,6 +73,7 @@ function startGame() {
 
 function onCellClick() {
     this.classList.remove("slot-overlay");
+    this.classList.add("disabled");
     if (this.classList.contains("bomb-slot")) {
         let overlay = document.querySelectorAll(".slot-overlay");
         for (let i = 0; i < overlay.length; i++) {
