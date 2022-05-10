@@ -84,7 +84,11 @@
 }
 /* ----- /GAME START ----- */
 
-.safe-slot, .bomb-slot, .slot-overlay {
+.slot {
+    position: relative;
+}
+
+.slot, .slot-overlay {
     width: calc(100% / 10);
     height: 70px;
     border: 6px solid white;
@@ -107,8 +111,12 @@
 }
 
 .slot-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     background-color: azure;
     background-image: url(../img/Question_Mark.png);
+    /* display: none; */
 }
 
 .safe-slot:hover, .bomb-slot:hover {

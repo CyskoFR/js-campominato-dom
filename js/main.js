@@ -61,12 +61,12 @@ function startGame() {
             const slot = document.createElement("div");
             slot.innerText = i;
             mainGameBox.append(slot);
-            slot.classList.add("bomb-slot");
+            slot.classList.add("slot", "bomb-slot");
         } else {
             const slot = document.createElement("div");
             slot.innerText = i;
             mainGameBox.append(slot);
-            slot.classList.add("safe-slot");
+            slot.classList.add("slot", "safe-slot");
         }
     }
     
